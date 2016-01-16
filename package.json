@@ -1,0 +1,30 @@
+{
+  "name": "user-input",
+  "version": "0.0.1",
+  "description": "User input tracking base class.",
+  "main": "src/user-input.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:apexearth/user-input.git"
+  },
+  "author": "apexearth@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apexearth/user-input/issues"
+  },
+  "keywords": [
+    "user",
+    "input"
+  ],
+  "homepage": "https://github.com/apexearth/user-input#readme",
+  "devDependencies": {
+    "expect": "^1.13.4",
+    "mocha": "^2.3.4"
+  }
+}
