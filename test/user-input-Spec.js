@@ -10,9 +10,10 @@ describe("user-input.js", function () {
     })
 
     it("has default members", function () {
-        var input = new UserInput({});
-        expect(input.values).toExist();
-        expect(input.input).toExist();
+        var input     = {};
+        var userInput = new UserInput(input)
+        expect(typeof userInput.values).toEqual('object')
+        expect(userInput.input).toEqual(input)
     })
 
 })
