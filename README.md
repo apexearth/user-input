@@ -5,15 +5,11 @@
 ![](http://img.shields.io/npm/dm/user-input.svg?style=flat)
 ![](http://img.shields.io/npm/l/user-input.svg?style=flat)
 
-Base class for creating user inputs.
+User input tracking for multiple inputs.
 
 ## Usage
 
 [![NPM](https://nodei.co/npm/user-input.png)](https://nodei.co/npm/user-input/)
-
-### Examples
-
-
 
 ## Tests
 

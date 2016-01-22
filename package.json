@@ -1,7 +1,7 @@
 {
   "name": "user-input",
-  "version": "0.0.2",
-  "description": "User input tracking base class.",
+  "version": "1.0.0",
+  "description": "User input tracking for multiple inputs.",
   "main": "src/user-input.js",
   "directories": {
     "test": "test"
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/apexearth/user-input#readme",
   "devDependencies": {
     "expect": "^1.13.4",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "user-input-keyboard": "0.0.1"
   }
 }
