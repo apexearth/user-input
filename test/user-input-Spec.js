@@ -9,6 +9,14 @@ describe("user-input.js", function () {
         expect(input._inputs.length).toEqual(0)
     })
 
+    it("can be created without inputs", function () {
+        var input = userInput()
+        expect(input._inputs.length).toEqual(0)
+        var kInput = keyboardInput()
+        input.addInput(kInput)
+        expect(input._inputs.indexOf(kInput) >= 0).toEqual(true)
+    })
+
     it("can be created with inputs", function () {
         var kInput = keyboardInput()
         var input  = userInput(kInput)
