@@ -1,16 +1,36 @@
+var keyboardInput = require("user-input-keyboard")
+var mouseInput    = require("user-input-mouse")
+
 module.exports = userInput
 
-function userInput(input) {
-    var func      = function (key) {
+function userInput() {
+    function aggregate(arr, key) {
         var value = 0;
-        for (var i = 0; i < func._inputs.length; i++) {
-            value += func._inputs[i][key] || 0;
+        for (var i = 0; i < arr.length; i++) {
+            value += arr[i][key] || 0;
         }
         return value;
     }
-    func._inputs  = input ? [].concat(input) : []
-    func.addInput = function (input) {
-        func._inputs.push(input)
+
+    var obj          = {
+        _mouse:      [],
+        mouse:       function (key) {
+            return aggregate(obj._mouse, key)
+        },
+        addMouse:    function (target) {
+            obj._mouse.push(mouseInput(target))
+            return obj
+        },
+        _keyboard:   [],
+        keyboard:    function (key) {
+            return aggregate(obj._keyboard, key)
+        },
+        addKeyboard: function (target) {
+            obj._keyboard.push(keyboardInput(target))
+            return obj
+        }
     }
-    return func;
+    obj.withMouse    = obj.addMouse
+    obj.withKeyboard = obj.addKeyboard
+    return obj;
 }

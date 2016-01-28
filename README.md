@@ -11,6 +11,20 @@ User input tracking for multiple inputs.
 
 [![NPM](https://nodei.co/npm/user-input.png)](https://nodei.co/npm/user-input/)
 
+### Example
+
+    var input   = userInput()
+        .withMouse()
+        .withKeyboard()
+    
+    input.keyboard('A') === 0
+    // Press A
+    input.keyboard('A') === 1
+        
+    input.mouse('mouse0') === 0
+    // Press Left Mouse Button
+    input.mouse('mouse0') === 1
+
 ## Tests
 
 - Mocha

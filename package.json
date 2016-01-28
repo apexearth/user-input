@@ -23,9 +23,12 @@
     "input"
   ],
   "homepage": "https://github.com/apexearth/user-input#readme",
+  "dependencies": {
+    "user-input-keyboard": "0.0.1",
+    "user-input-mouse": "^1.0.0"
+  },
   "devDependencies": {
     "expect": "^1.13.4",
-    "mocha": "^2.3.4",
-    "user-input-keyboard": "0.0.1"
+    "mocha": "^2.3.4"
   }
 }
