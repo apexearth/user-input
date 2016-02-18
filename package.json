@@ -20,7 +20,9 @@
   },
   "keywords": [
     "user",
-    "input"
+    "input",
+    "keyboard",
+    "mouse"
   ],
   "homepage": "https://github.com/apexearth/user-input#readme",
   "dependencies": {
