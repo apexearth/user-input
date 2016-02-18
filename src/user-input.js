@@ -13,6 +13,7 @@ function userInput() {
     }
 
     var obj          = {
+
         _mouse:      [],
         mouse:       function (key) {
             return aggregate(obj._mouse, key)
@@ -21,6 +22,7 @@ function userInput() {
             obj._mouse.push(mouseInput(target))
             return obj
         },
+
         _keyboard:   [],
         keyboard:    function (key) {
             return aggregate(obj._keyboard, key)
@@ -29,6 +31,7 @@ function userInput() {
             obj._keyboard.push(keyboardInput(target))
             return obj
         }
+
     }
     obj.withMouse    = obj.addMouse
     obj.withKeyboard = obj.addKeyboard
