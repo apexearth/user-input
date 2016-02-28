@@ -1,5 +1,6 @@
-var expect    = require("expect")
-var userInput = require("../src/user-input.js")
+var expect       = require("expect")
+var userInput    = require("../src/user-input.js")
+var gamepadInput = require("user-input-gamepad")
 
 describe("user-input.js", function () {
 
@@ -69,6 +70,16 @@ describe("user-input.js", function () {
         expect(input.mouse('mouse0')).toEqual(0)
     })
 
+    it("can receive gamepad input", function () {
+        var input = userInput()
+            .withGamepad()
+
+        gamepadInput.mocks.push({
+            buttons: []
+        })
+        var gamepad = input.gamepad()
+        expect(gamepad.buttons).toExist()
+    })
 
     it("provides users the ability to set values easily", function () {
         var input = userInput().withKeyboard()

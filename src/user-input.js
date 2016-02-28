@@ -1,5 +1,6 @@
 var keyboardInput = require("user-input-keyboard")
 var mouseInput    = require("user-input-mouse")
+var gamepadInput  = require("user-input-gamepad")
 
 module.exports = userInput
 
@@ -44,10 +45,21 @@ function userInput() {
         addKeyboard: function (target) {
             obj._keyboard.push(keyboardInput(target))
             return obj
+        },
+
+        _gamepad:   [],
+        gamepad:    function () {
+            return obj._gamepad()
+        },
+        addGamepad: function (target) {
+            target       = target || 0
+            obj._gamepad = gamepadInput.bind(null, target)
+            return obj
         }
 
     }
     obj.withMouse    = obj.addMouse
     obj.withKeyboard = obj.addKeyboard
+    obj.withGamepad  = obj.addGamepad
     return obj;
 }
