@@ -4,7 +4,7 @@ var mouseInput    = require("user-input-mouse")
 module.exports = userInput
 
 function userInput() {
-    function aggregate(arr, key) {
+    function sum(arr, key) {
         var value = 0;
         for (var i = 0; i < arr.length; i++) {
             value += arr[i][key] || 0;
@@ -12,20 +12,34 @@ function userInput() {
         return value;
     }
 
+    function set(arr, key, value) {
+        for (var i = 0; i < arr.length; i++) {
+            arr[i][key] = value / arr.length
+        }
+    }
+
+    function handle(arr, key, value) {
+        if (value !== undefined) {
+            return set(arr, key, value)
+        } else {
+            return sum(arr, key)
+        }
+    }
+
     var obj          = {
 
-        _mouse:      [],
-        mouse:       function (key) {
-            return aggregate(obj._mouse, key)
+        _mouse:   [],
+        mouse:    function (key, value) {
+            return handle(obj._mouse, key, value)
         },
-        addMouse:    function (target) {
+        addMouse: function (target) {
             obj._mouse.push(mouseInput(target))
             return obj
         },
 
         _keyboard:   [],
-        keyboard:    function (key) {
-            return aggregate(obj._keyboard, key)
+        keyboard:    function (key, value) {
+            return handle(obj._keyboard, key, value)
         },
         addKeyboard: function (target) {
             obj._keyboard.push(keyboardInput(target))

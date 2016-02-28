@@ -68,4 +68,19 @@ describe("user-input.js", function () {
         input._mouse[0]._input.emit('mouseup', {button: 0})
         expect(input.mouse('mouse0')).toEqual(0)
     })
+
+
+    it("provides users the ability to set values easily", function () {
+        var input = userInput().withKeyboard()
+
+        expect(input.keyboard('A')).toEqual(0)
+
+        input.keyboard('A', 1)
+        expect(input.keyboard('A')).toEqual(1)
+
+        input.keyboard('A', 0)
+        expect(input.keyboard('A')).toEqual(0)
+
+    })
+
 })
