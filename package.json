@@ -26,6 +26,7 @@
   ],
   "homepage": "https://github.com/apexearth/user-input#readme",
   "dependencies": {
+    "user-input-gamepad": "0.0.1",
     "user-input-keyboard": "0.0.1",
     "user-input-mouse": "^1.0.0"
   },
