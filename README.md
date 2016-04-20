@@ -16,6 +16,7 @@ User input tracking for multiple inputs.
     var input   = userInput()
         .withMouse()
         .withKeyboard()
+        .withGamepad(0)
     
     input.keyboard('A') === 0
     // Press A
@@ -25,6 +26,9 @@ User input tracking for multiple inputs.
     // Press Left Mouse Button
     input.mouse('mouse0') === 1
 
+    // Get instances of gamepads, in rendering loops.
+    input.gamepad()
+    
 ## Tests
 
 - Mocha
