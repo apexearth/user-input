@@ -1,9 +1,6 @@
 # user-input
 
 ![](https://travis-ci.org/apexearth/user-input.svg)
-![](http://img.shields.io/npm/v/user-input.svg?style=flat)
-![](http://img.shields.io/npm/dm/user-input.svg?style=flat)
-![](http://img.shields.io/npm/l/user-input.svg?style=flat)
 
 User input tracking for multiple inputs.
 
@@ -31,6 +28,11 @@ User input tracking for multiple inputs.
     
     // Clear keyboard & mouse values back to zero.
     input.clear()
+    
+    // Set values for testing
+    input.keyboard('A', 1)
+    input.mouse('mouse0', 1)
+    input.mouse('x', 500)
     
 ## Tests
 
