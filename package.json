@@ -1,6 +1,6 @@
 {
   "name": "user-input",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "User input tracking for multiple inputs.",
   "main": "src/user-input.js",
   "directories": {
@@ -26,9 +26,9 @@
   ],
   "homepage": "https://github.com/apexearth/user-input#readme",
   "dependencies": {
-    "user-input-gamepad": "0.0.1",
-    "user-input-keyboard": "0.0.1",
-    "user-input-mouse": "^1.0.0"
+    "user-input-gamepad": "^0.0.1",
+    "user-input-keyboard": "^0.3.0",
+    "user-input-mouse": "^2.0.0"
   },
   "devDependencies": {
     "expect": "^1.13.4",

@@ -15,7 +15,11 @@ function userInput() {
 
     function set(arr, key, value) {
         for (var i = 0; i < arr.length; i++) {
-            arr[i][key] = value / arr.length
+            if (arr[i].set) {
+                arr[i].set(key, value / arr.length)
+            } else {
+                arr[i][key] = value / arr.length
+            }
         }
     }
 
@@ -55,8 +59,16 @@ function userInput() {
             target       = target || 0
             obj._gamepad = gamepadInput.bind(null, target)
             return obj
-        }
+        },
 
+        clear: function () {
+            for (var i = 0; i < this._mouse.length; i++) {
+                this._mouse[i].clear();
+            }
+            for (i = 0; i < this._keyboard.length; i++) {
+                this._keyboard[i].clear();
+            }
+        }
     }
     obj.withMouse    = obj.addMouse
     obj.withKeyboard = obj.addKeyboard

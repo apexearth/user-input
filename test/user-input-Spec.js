@@ -1,5 +1,5 @@
-var expect       = require("expect")
-var userInput    = require("../src/user-input.js")
+var expect = require("expect")
+var userInput = require("../src/user-input.js")
 var gamepadInput = require("user-input-gamepad")
 
 describe("user-input.js", function () {
@@ -94,4 +94,21 @@ describe("user-input.js", function () {
 
     })
 
+    it("can clear values on keyboard and mouse inputs", function () {
+        var input = userInput().withKeyboard().withMouse()
+
+        input.keyboard('A', 1)
+        expect(input.keyboard('A')).toEqual(1)
+
+        input._mouse[0]._input.emit('mousedown', {clientX: 5, clientY: 10, button: 0})
+        expect(input.mouse('mouse0')).toEqual(1)
+        expect(input.mouse('x')).toEqual(5)
+        expect(input.mouse('y')).toEqual(10)
+
+        input.clear();
+        expect(input.keyboard('A')).toEqual(0)
+        expect(input.mouse('mouse0')).toEqual(0)
+        expect(input.mouse('x')).toEqual(0)
+        expect(input.mouse('y')).toEqual(0)
+    })
 })

@@ -29,6 +29,9 @@ User input tracking for multiple inputs.
     // Get instances of gamepads, in rendering loops.
     input.gamepad()
     
+    // Clear keyboard & mouse values back to zero.
+    input.clear()
+    
 ## Tests
 
 - Mocha
