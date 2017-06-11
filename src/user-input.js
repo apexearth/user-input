@@ -46,8 +46,8 @@ function userInput() {
         keyboard:    function (key, value) {
             return handle(obj._keyboard, key, value)
         },
-        addKeyboard: function (target) {
-            obj._keyboard.push(keyboardInput(target))
+        addKeyboard: function (target, options) {
+            obj._keyboard.push(keyboardInput(target, options))
             return obj
         },
 
