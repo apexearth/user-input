@@ -1,7 +1,7 @@
 {
   "name": "user-input",
-  "version": "1.4.1",
-  "description": "User input tracking for multiple inputs.",
+  "version": "1.5.0",
+  "description": "User input tracking for keyboard, mouse, touch, and gamepad inputs.",
   "main": "src/user-input.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git@github.com:apexearth/user-input.git"
   },
-  "author": "apexearth@gmail.com",
+  "author": {
+    "name": "Christopher Jacobs",
+    "email": "apexearth@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/apexearth/user-input/issues"
@@ -22,13 +25,16 @@
     "user",
     "input",
     "keyboard",
-    "mouse"
+    "mouse",
+    "gamepad",
+    "touch"
   ],
   "homepage": "https://github.com/apexearth/user-input#readme",
   "dependencies": {
     "user-input-gamepad": "^0.0.1",
     "user-input-keyboard": "^0.4.1",
-    "user-input-mouse": "^2.0.0"
+    "user-input-mouse": "^2.0.0",
+    "user-input-touch": "^1.0.1"
   },
   "devDependencies": {
     "expect": "^1.13.4",

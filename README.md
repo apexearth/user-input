@@ -2,7 +2,7 @@
 
 ![](https://travis-ci.org/apexearth/user-input.svg)
 
-User input tracking for multiple inputs.
+User input tracking for keyboard, mouse, touch, and gamepad inputs.
 
 ## Usage
 
@@ -14,6 +14,7 @@ User input tracking for multiple inputs.
         .withMouse()
         .withKeyboard()
         .withGamepad(0)
+        .withTouch()
     
     input.keyboard('A') === 0
     // Press A
@@ -25,6 +26,9 @@ User input tracking for multiple inputs.
 
     // Get instances of gamepads, in rendering loops.
     input.gamepad()
+    
+    input.touches        // Current touches
+    input.changedTouches // Changed touches
     
     // Clear keyboard & mouse values back to zero.
     input.clear()

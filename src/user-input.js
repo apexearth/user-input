@@ -1,6 +1,7 @@
 var keyboardInput = require("user-input-keyboard")
 var mouseInput    = require("user-input-mouse")
 var gamepadInput  = require("user-input-gamepad")
+var touchInput = require("user-input-touch")
 
 module.exports = userInput
 
@@ -33,8 +34,8 @@ function userInput() {
 
     var obj          = {
 
-        _mouse:   [],
-        mouse:    function (key, value) {
+        _mouse: [],
+        mouse : function (key, value) {
             return handle(obj._mouse, key, value)
         },
         addMouse: function (target) {
@@ -42,8 +43,8 @@ function userInput() {
             return obj
         },
 
-        _keyboard:   [],
-        keyboard:    function (key, value) {
+        _keyboard: [],
+        keyboard : function (key, value) {
             return handle(obj._keyboard, key, value)
         },
         addKeyboard: function (target, options) {
@@ -51,13 +52,19 @@ function userInput() {
             return obj
         },
 
-        _gamepad:   [],
-        gamepad:    function () {
+        _gamepad: [],
+        gamepad : function () {
             return obj._gamepad()
         },
         addGamepad: function (target) {
             target       = target || 0
             obj._gamepad = gamepadInput.bind(null, target)
+            return obj
+        },
+
+        _touch  : [],
+        addTouch: function (target, options) {
+            obj._touch.push(touchInput(target, options))
             return obj
         },
 
@@ -68,10 +75,40 @@ function userInput() {
             for (i = 0; i < this._keyboard.length; i++) {
                 this._keyboard[i].clear();
             }
+            for (i = 0; i < this._touch.length; i++) {
+                this._touch[i].clear();
+            }
         }
     }
     obj.withMouse    = obj.addMouse
     obj.withKeyboard = obj.addKeyboard
     obj.withGamepad  = obj.addGamepad
+    obj.withTouch    = obj.addTouch
+
+    Object.defineProperties(obj, {
+        touches       : {
+            get: function () {
+                var touches = []
+                for (var i = 0; i < obj._touch.length; i++) {
+                    for (var k = 0; k < obj._touch[i].touches.length; k++) {
+                        touches.push(obj._touch[i].touches[k])
+                    }
+                }
+                return touches
+            }
+        },
+        changedTouches: {
+            get: function () {
+                var touches = []
+                for (var i = 0; i < obj._touch.length; i++) {
+                    for (var k = 0; k < obj._touch[i].changedTouches.length; k++) {
+                        touches.push(obj._touch[i].changedTouches[k])
+                    }
+                }
+                return touches
+            }
+        },
+    })
+
     return obj;
 }

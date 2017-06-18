@@ -1,5 +1,5 @@
-var expect = require("expect")
-var userInput = require("../src/user-input.js")
+var expect       = require("expect")
+var userInput    = require("../src/user-input.js")
 var gamepadInput = require("user-input-gamepad")
 
 describe("user-input.js", function () {
@@ -8,14 +8,27 @@ describe("user-input.js", function () {
         var input = userInput()
         expect(input._keyboard.length).toEqual(0)
         expect(input._mouse.length).toEqual(0)
+        expect(input._touch.length).toEqual(0)
     })
 
-    it("can be created without inputs", function () {
+    it("can create inputs", function () {
         var input = userInput()
         expect(input._keyboard.length).toEqual(0)
+        expect(input._mouse.length).toEqual(0)
+        expect(input._touch.length).toEqual(0)
 
         input.addKeyboard()
         expect(input._keyboard.length).toEqual(1)
+        expect(input._mouse.length).toEqual(0)
+        expect(input._touch.length).toEqual(0)
+        input.addMouse()
+        expect(input._keyboard.length).toEqual(1)
+        expect(input._mouse.length).toEqual(1)
+        expect(input._touch.length).toEqual(0)
+        input.addTouch()
+        expect(input._keyboard.length).toEqual(1)
+        expect(input._mouse.length).toEqual(1)
+        expect(input._touch.length).toEqual(1)
     })
 
     it("shows values for it's input", function () {
@@ -110,5 +123,23 @@ describe("user-input.js", function () {
         expect(input.mouse('mouse0')).toEqual(0)
         expect(input.mouse('x')).toEqual(0)
         expect(input.mouse('y')).toEqual(0)
+    })
+
+    it("can read touch inputs", function () {
+        var input          = userInput().withTouch()
+        var touches        = [1]
+        var changedTouches = [2]
+        input._touch[0]._input.emit('touchstart', {touches: touches, changedTouches: changedTouches})
+        expect(input.touches).toEqual(touches)
+        expect(input.changedTouches).toEqual(changedTouches)
+
+        input._touch[0]._input.emit('touchend', {touches: [], changedTouches: []})
+        expect(input.touches).toEqual([])
+        expect(input.changedTouches).toEqual([])
+
+        input._touch[0]._input.emit('touchstart', {touches: touches, changedTouches: changedTouches})
+        input.clear()
+        expect(input.touches).toEqual([])
+        expect(input.changedTouches).toEqual([])
     })
 })
