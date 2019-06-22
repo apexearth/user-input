@@ -33,11 +33,11 @@
   "dependencies": {
     "user-input-gamepad": "^0.0.1",
     "user-input-keyboard": "^0.4.1",
-    "user-input-mouse": "^2.0.0",
-    "user-input-touch": "^1.0.1"
+    "user-input-mouse": "^2.0.1",
+    "user-input-touch": "^1.0.2"
   },
   "devDependencies": {
-    "expect": "^1.13.4",
-    "mocha": "^2.3.4"
+    "expect": "^1.20.2",
+    "mocha": "^6.1.4"
   }
 }
