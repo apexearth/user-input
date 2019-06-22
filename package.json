@@ -1,6 +1,6 @@
 {
   "name": "user-input",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "User input tracking for keyboard, mouse, touch, and gamepad inputs.",
   "main": "src/user-input.js",
   "directories": {
